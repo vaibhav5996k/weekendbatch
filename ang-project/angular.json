@@ -236,6 +236,123 @@
           }
         }
       }
+    },
+    "new-view-encapsulation": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/new-view-encapsulation",
+      "sourceRoot": "projects/new-view-encapsulation/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/new-view-encapsulation",
+            "index": "projects/new-view-encapsulation/src/index.html",
+            "main": "projects/new-view-encapsulation/src/main.ts",
+            "polyfills": "projects/new-view-encapsulation/src/polyfills.ts",
+            "tsConfig": "projects/new-view-encapsulation/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/new-view-encapsulation/src/favicon.ico",
+              "projects/new-view-encapsulation/src/assets"
+            ],
+            "styles": [
+              "projects/new-view-encapsulation/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/new-view-encapsulation/src/environments/environment.ts",
+                  "with": "projects/new-view-encapsulation/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "new-view-encapsulation:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "new-view-encapsulation:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "new-view-encapsulation:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/new-view-encapsulation/src/test.ts",
+            "polyfills": "projects/new-view-encapsulation/src/polyfills.ts",
+            "tsConfig": "projects/new-view-encapsulation/tsconfig.spec.json",
+            "karmaConfig": "projects/new-view-encapsulation/karma.conf.js",
+            "assets": [
+              "projects/new-view-encapsulation/src/favicon.ico",
+              "projects/new-view-encapsulation/src/assets"
+            ],
+            "styles": [
+              "projects/new-view-encapsulation/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/new-view-encapsulation/tsconfig.app.json",
+              "projects/new-view-encapsulation/tsconfig.spec.json",
+              "projects/new-view-encapsulation/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/new-view-encapsulation/e2e/protractor.conf.js",
+            "devServerTarget": "new-view-encapsulation:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "new-view-encapsulation:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ang-project",
