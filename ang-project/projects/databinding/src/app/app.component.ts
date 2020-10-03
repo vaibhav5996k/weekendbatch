@@ -9,7 +9,6 @@ export class AppComponent {
   title = 'databinding';
   brd = '1px solid yellow';
   fntwt = '500';
-  counter = 0;
 
   clk(btn: number) {
     if (btn == 1) {
@@ -18,7 +17,7 @@ export class AppComponent {
       this.fntwt += 250;
     }
   }
-
+  counter = 0;
   dblclick() {
     return this.counter++;
   }
