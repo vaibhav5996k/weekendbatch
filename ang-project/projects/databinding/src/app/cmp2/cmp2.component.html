@@ -1,0 +1,38 @@
+<div class="row border mt-3">
+    <div class="col">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur eligendi. Illo fuga id quam, odio sapiente ipsa repudiandae? Fuga, doloribus facilis blanditiis debitis quia perferendis earum maiores quo facere beatae odit nostrum amet
+            enim voluptate iste itaque necessitatibus aspernatur officia, rerum cupiditate temporibus. Quia atque laboriosam dolor? Voluptatum, rem!</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <input class="form-check-input" type="checkbox" value="" id="biodata" (change)="checkChange()" #biodata>
+        <label class="form-check-label" for="biodata">
+                Biodata
+            </label>
+    </div>
+    <div class="col">
+        <input class="form-check-input" type="checkbox" value="" id="demograpic" (change)="checkChange()" #demograpic>
+        <label class="form-check-label" for="demograpic">
+                Demograpic
+            </label>
+    </div>
+    <div class="col">
+        <input class="form-check-input" type="checkbox" value="" id="educational" (change)="checkChange()" #educational>
+        <label class="form-check-label" for="educational">
+                Educational
+            </label>
+    </div>
+    <div class="col">
+        <input class="form-check-input" type="checkbox" value="" id="joborbusiness" (change)="checkChange()" #joborbusiness>
+        <label class="form-check-label" for="joborbusiness">
+                Job or Business 
+            </label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        Biodata {{ biodata.checked}} Demograpic {{ demograpic.checked}} Educational {{ educational.checked}} Job or Business {{ joborbusiness.checked}}
+    </div>
+</div>
