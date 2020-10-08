@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-cmp2',
@@ -7,6 +14,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class Cmp2Component implements OnInit {
   progress: number;
+  ccheck: number;
+
+  @Output('profileprogress')
+  profileProgress: EventEmitter<number> = new EventEmitter();
 
   @ViewChild('biodata')
   biodata: ElementRef<HTMLInputElement>;
@@ -39,6 +50,56 @@ export class Cmp2Component implements OnInit {
       `Checked Job or Business state - ${this.joborbusiness.nativeElement.checked}`
     );
 
-    this.progress = 50;
+    if (this.biodata.nativeElement.checked == true) {
+      if (this.demograpic.nativeElement.checked == true) {
+        if (this.educational.nativeElement.checked == true) {
+          if (this.joborbusiness.nativeElement.checked == true) {
+            this.ccheck = 100;
+          } else {
+            this.ccheck = 75;
+          }
+        } else if (this.joborbusiness.nativeElement.checked == true) {
+          this.ccheck = 75;
+        } else {
+          this.ccheck = 50;
+        }
+      } else if (this.educational.nativeElement.checked == true) {
+        if (this.joborbusiness.nativeElement.checked == true) {
+          this.ccheck = 75;
+        } else {
+          this.ccheck = 50;
+        }
+      } else if (this.joborbusiness.nativeElement.checked == true) {
+        this.ccheck = 50;
+      } else {
+        this.ccheck = 25;
+      }
+    } else if (this.demograpic.nativeElement.checked == true) {
+      if (this.educational.nativeElement.checked == true) {
+        if (this.joborbusiness.nativeElement.checked == true) {
+          this.ccheck = 75;
+        } else {
+          this.ccheck = 50;
+        }
+      } else if (this.joborbusiness.nativeElement.checked == true) {
+        this.ccheck = 50;
+      } else {
+        this.ccheck = 25;
+      }
+    } else if (this.educational.nativeElement.checked == true) {
+      if (this.joborbusiness.nativeElement.checked == true) {
+        this.ccheck = 50;
+      } else {
+        this.ccheck = 25;
+      }
+    } else if (this.joborbusiness.nativeElement.checked == true) {
+      this.ccheck = 25;
+    } else {
+      this.ccheck = 0;
+    }
+
+    this.progress = this.ccheck;
+    console.log(this.progress);
+    this.profileProgress.emit(this.progress);
   }
 }

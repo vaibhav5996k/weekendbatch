@@ -1,9 +1,13 @@
 <div class="row border mt-3">
     <div class="col">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur eligendi. Illo fuga id quam, odio sapiente ipsa repudiandae? Fuga, doloribus facilis blanditiis debitis quia perferendis earum maiores quo facere beatae odit nostrum amet
-            enim voluptate iste itaque necessitatibus aspernatur officia, rerum cupiditate temporibus. Quia atque laboriosam dolor? Voluptatum, rem!</p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, consectetur eligendi. Illo fuga id quam, odio sapiente ipsa repudiandae? Fuga, doloribus facilis blanditiis debitis quia perferendis earum maiores quo facere beatae odit nostrum amet enim
+            voluptate iste itaque necessitatibus aspernatur officia, rerum cupiditate temporibus. Quia atque laboriosam dolor? Voluptatum, rem!
+        </p>
         <div class="progress mb-2">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+            <div class="progress-bar" role="progressbar" [style.width.%]="progress" aria-valuemin="0" aria-valuemax="100">
+                {{ progress }}%
+            </div>
         </div>
     </div>
 </div>

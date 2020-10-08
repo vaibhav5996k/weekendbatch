@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col">
             <input type="text" [style.font-weight]="fntwt" />
         </div>
@@ -23,9 +23,9 @@
             <input type="button" value="Increase" class="btn btn-info" (click)="clk(1)" />
             <input type="button" value="Decrease" class="btn btn-danger" (click)="clk(2)" />
         </div>
-    </div>
-    <app-cmp1></app-cmp1>
-    <app-cmp2></app-cmp2>
+    </div> -->
+    <app-cmp1 [progress]="calcprog"></app-cmp1>
+    <app-cmp2 (profileprogress)="onProgress($event)"></app-cmp2>
 </div>
 
 <!-- <div class="container">
