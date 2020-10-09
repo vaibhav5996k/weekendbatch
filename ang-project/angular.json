@@ -587,6 +587,123 @@
           }
         }
       }
+    },
+    "dashboardhw": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/dashboardhw",
+      "sourceRoot": "projects/dashboardhw/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dashboardhw",
+            "index": "projects/dashboardhw/src/index.html",
+            "main": "projects/dashboardhw/src/main.ts",
+            "polyfills": "projects/dashboardhw/src/polyfills.ts",
+            "tsConfig": "projects/dashboardhw/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/dashboardhw/src/favicon.ico",
+              "projects/dashboardhw/src/assets"
+            ],
+            "styles": [
+              "projects/dashboardhw/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/dashboardhw/src/environments/environment.ts",
+                  "with": "projects/dashboardhw/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dashboardhw:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dashboardhw:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dashboardhw:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dashboardhw/src/test.ts",
+            "polyfills": "projects/dashboardhw/src/polyfills.ts",
+            "tsConfig": "projects/dashboardhw/tsconfig.spec.json",
+            "karmaConfig": "projects/dashboardhw/karma.conf.js",
+            "assets": [
+              "projects/dashboardhw/src/favicon.ico",
+              "projects/dashboardhw/src/assets"
+            ],
+            "styles": [
+              "projects/dashboardhw/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dashboardhw/tsconfig.app.json",
+              "projects/dashboardhw/tsconfig.spec.json",
+              "projects/dashboardhw/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/dashboardhw/e2e/protractor.conf.js",
+            "devServerTarget": "dashboardhw:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dashboardhw:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ang-project",

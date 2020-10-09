@@ -1,0 +1,5 @@
+<div>
+    <app-nav-comp></app-nav-comp>
+    <app-left-comp (clickvalue)="onClick($event)"></app-left-comp>
+    <app-main-comp [clkv]="clickvalue"></app-main-comp>
+</div>
